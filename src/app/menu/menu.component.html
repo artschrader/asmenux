@@ -1,11 +1,10 @@
-<nav>
   <div class="header">
-  <div class="container-fluid">    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li *ngFor="let p of pages"><a href={{p}}>{{p}}</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+  <button md-icon-button [mdMenuTriggerFor]="appMenu">
+  <md-icon>more_vert</md-icon>
+  </button>
+    <md-menu #appMenu="mdMenu">
+      <div  *ngFor="let p of pages">
+        <button md-menu-item routerLink="{{p}}">{{p}}</button>
+      </div>
+      </md-menu>
   </div>
-</nav>
