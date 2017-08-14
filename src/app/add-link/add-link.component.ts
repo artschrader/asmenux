@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MdDialog, MdDialogRef } from '@angular/material';
+import { Link } from '../models/link';
 
 @Component({
   selector: 'app-add-link',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-link.component.css']
 })
 export class AddLinkComponent implements OnInit {
+  newLink: Link;
 
-  constructor() { }
+  constructor(public dialogRef: MdDialogRef<AddLinkComponent>) { }
 
   ngOnInit() {
+    this.newLink = new Link();
+
   }
+
 
 }

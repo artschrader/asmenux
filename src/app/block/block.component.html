@@ -1,4 +1,4 @@
-<div fxLayout="row">
+<div fxLayout="row" fxLayoutGap="10px">
   <md-card class="block" *ngFor="let b of blocks">
     <md-card-content>
       <md-card-title>{{b.title}}</md-card-title>
@@ -7,3 +7,5 @@
     </md-card-content>
   </md-card>
 </div>
+<p>{{retVal | json}}</p>
+<p>{{newLink | json}}</p>

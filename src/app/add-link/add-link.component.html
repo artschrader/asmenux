@@ -1,10 +1,18 @@
 <p>
-Create New Link 
+    Create New Link
 </p>
 <p>
-<label>Title</label>
-<input type="text" id="title" [(ngModel)]="link.title" name="title">
-</p><p>
-<label>Url</label>
-<input type="text" id="Url" [(ngModel)]="link.Url" name="Url">
+    <label>Title</label>
+    <input type="text" id="title" [(ngModel)]="newLink.title" name="title">
+</p>
+<p>
+    <label>Url</label>
+    <input type="text" id="Url" [(ngModel)]="newLink.Url" name="Url">
+</p>
+<p>
+    <md-dialog-actions>
+        <button md-raised-button md-dialog-close="Cancel" class="dialogButton">Cancel</button>
+        <!-- Can optionally provide a result for the closing dialog. -->
+        <button md-raised-button md-dialog-close="Save" class="dialogButton">Save</button>
+    </md-dialog-actions>
 </p>

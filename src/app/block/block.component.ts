@@ -12,16 +12,18 @@ import { AddLinkComponent } from '../add-link/add-link.component';
 })
 export class BlockComponent implements OnInit {
   blocks: Block[];
+  retVal: string;
 
   constructor(private blockService: BlockService, public dialog: MdDialog) { }
 
   ngOnInit(): void {
-    this.blockService.getBlocks().then(blocks => {this.blocks = blocks; });
+    this.blockService.getBlocks().then(blocks => { this.blocks = blocks; });
   }
   OnClick(event) {
     console.log(event);
   }
   OpenDialog() {
-    this.dialog.open(AddLinkComponent);
+    let dialogRef = this.dialog.open(AddLinkComponent);
+    dialogRef.afterClosed().subscribe(result => {this.retVal = result;})
   }
 }

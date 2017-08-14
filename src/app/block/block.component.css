@@ -2,6 +2,7 @@
     max-width:138px;
     padding-bottom:75px;
     flex-wrap:wrap;
+    background-color: lightcyan;
 }
 .plusButton {
     margin-top: 10px;
