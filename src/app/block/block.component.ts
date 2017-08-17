@@ -29,7 +29,5 @@ export class BlockComponent implements OnInit {
   OpenDialog() {
     this.newLink = new Link();
     const dialogRef = this.dialog.open(AddLinkComponent);
-    dialogRef.componentInstance.newLink = this.newLink;
-    dialogRef.afterClosed().subscribe(result => {this.retVal = result; });
   }
 }
