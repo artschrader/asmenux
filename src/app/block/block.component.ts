@@ -3,6 +3,7 @@ import { Block } from '../models/block';
 import { BlockService } from '../services/block.service';
 import { MdDialog } from '@angular/material';
 import { AddLinkComponent } from '../add-link/add-link.component';
+import { Link } from '../models/link';
 
 
 @Component({
@@ -13,6 +14,9 @@ import { AddLinkComponent } from '../add-link/add-link.component';
 export class BlockComponent implements OnInit {
   blocks: Block[];
   retVal: string;
+  newLink: Link;
+  Title: string;
+  Url: string;
 
   constructor(private blockService: BlockService, public dialog: MdDialog) { }
 
@@ -23,7 +27,9 @@ export class BlockComponent implements OnInit {
     console.log(event);
   }
   OpenDialog() {
-    let dialogRef = this.dialog.open(AddLinkComponent);
-    dialogRef.afterClosed().subscribe(result => {this.retVal = result;})
+    this.newLink = new Link();
+    const dialogRef = this.dialog.open(AddLinkComponent);
+    dialogRef.componentInstance.newLink = this.newLink;
+    dialogRef.afterClosed().subscribe(result => {this.retVal = result; });
   }
 }

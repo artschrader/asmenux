@@ -1,18 +1,27 @@
-<p>
-    Create New Link
-</p>
-<p>
-    <label>Title</label>
-    <input type="text" id="title" [(ngModel)]="newLink.title" name="title">
-</p>
-<p>
-    <label>Url</label>
-    <input type="text" id="Url" [(ngModel)]="newLink.Url" name="Url">
-</p>
-<p>
-    <md-dialog-actions>
-        <button md-raised-button md-dialog-close="Cancel" class="dialogButton">Cancel</button>
+<form novalidate (ngSubmit)="onSubmit(linkFrm)" [formGroup]="linkFrm">
+    <h1 md-dialog-title>Create New Link</h1>
+    <div md-dialog-content class="md-dialog-container">
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="Title" [formControl]="title" id="Title">
+            </md-input-container>
+<!--             <div *ngIf="formErrors.Title" class="text-danger">
+                {{ formErrors.Title }}
+            </div>
+ -->        </div>
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="Url" [formControl]="url" id="Url">
+            </md-input-container>
+<!--             <div *ngIf="formErrors.Url" class="text-danger">
+                {{ formErrors.Url }}
+            </div>
+ -->        </div>
+    </div>
+    <!-- md-dialog-content -->
+    <md-dialog-actions class="md-dialog-footer" align="end">
+        <button type="button" color="warn" md-raised-button md-dialog-close="Cancel">Cancel</button>
         <!-- Can optionally provide a result for the closing dialog. -->
-        <button md-raised-button md-dialog-close="Save" class="dialogButton">Save</button>
+        <button type="submit" color="primary"  md-raised-button>Save</button>
     </md-dialog-actions>
-</p>
+</form>
