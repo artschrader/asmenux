@@ -50,7 +50,8 @@ import { LinkService } from './services/link.service';
 import { BlockComponent } from './block/block.component';
 import { LinkComponent } from './link/link.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { AddLinkComponent } from './add-link/add-link.component';
+import { AddLinkComponent } from './dialogs/add-link/add-link.component';
+import { DelLinkComponent } from './dialogs/del-link/del-link.component';
 
 @NgModule({
   exports: [
@@ -98,7 +99,8 @@ export class AngularMaterialModule {}
     HomeComponent,
     BlockComponent,
     LinkComponent,
-    AddLinkComponent
+    AddLinkComponent,
+    DelLinkComponent
   ],
   imports: [
     BrowserModule,
@@ -111,7 +113,7 @@ export class AngularMaterialModule {}
     ReactiveFormsModule,
     FlexLayoutModule
   ],
-  entryComponents: [AddLinkComponent],
+  entryComponents: [AddLinkComponent, DelLinkComponent],
   providers: [SettingsService, BlockService, LinkService],
   bootstrap: [AppComponent]
 })

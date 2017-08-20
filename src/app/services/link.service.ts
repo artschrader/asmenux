@@ -37,13 +37,18 @@ export class LinkService implements OnInit {
     .post(this.linkUrl, this.link)
     .subscribe();
   }
-  
+
   getNextLinkId(): Promise<number> {
     return this.http.get(this.linkUrl)
       .toPromise()
       .then(response => response.json()[response.json().count - 1].id as number)
       .catch(this.handleError);
   }
+    deleteLink(id: number) {
+        this.http.delete(this.linkUrl + '/' + id)
+        .toPromise()
+        .catch(this.handleError);
+    }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
-import { Link } from '../models/link';
+import { Link } from '../../models/link';
 import { ReactiveFormsModule, FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LinkService } from '../services/link.service';
+import { LinkService } from '../../services/link.service';
 
 @Component({
   selector: 'app-add-link',
@@ -14,6 +14,7 @@ export class AddLinkComponent implements OnInit {
   linkFrm: FormGroup;
   title = new FormControl();
   url = new FormControl();
+  public blockId: number;
 
   constructor(private fb: FormBuilder, public dialogRef: MdDialogRef<AddLinkComponent>, private linkService: LinkService) {
     this.createForm();
@@ -31,7 +32,7 @@ export class AddLinkComponent implements OnInit {
   }
 
   onSubmit(linkFrm) {
-    this.linkService.addLink(this.title.value, this.url.value, 2);
+    this.linkService.addLink(this.title.value, this.url.value, this.blockId);
     this.dialogRef.close();
   }
 

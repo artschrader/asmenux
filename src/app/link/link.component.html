@@ -1,3 +1,4 @@
     <md-card class="linkCard" *ngFor="let l of links">
       <a md-raised-button href="{{l.Url}}" target="_blank">{{l.title}}</a>
+      <button md-icon-button class="pull-right" (click)="deleteLink(l)"><i class="material-icons">delete</i></button>
     </md-card>

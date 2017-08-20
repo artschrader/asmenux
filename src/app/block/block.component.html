@@ -1,9 +1,9 @@
 <div fxLayout="row" fxLayoutGap="10px">
-  <md-card class="block" *ngFor="let b of blocks">
+  <md-card class="block" md-cols-lg="6" *ngFor="let b of blocks">
     <md-card-content>
       <md-card-title>{{b.title}}</md-card-title>
       <app-link [currentBlockId]="b.id"></app-link>
-      <button md-fab class="plusButton pull-right" (click)="OpenDialog()"><i class="material-icons">add</i></button>
+      <button md-fab class="plusButton pull-right" (click)="OpenDialog(b.id)"><i class="material-icons">add</i></button>
     </md-card-content>
   </md-card>
 </div>

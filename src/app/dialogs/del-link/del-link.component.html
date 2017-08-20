@@ -1,0 +1,9 @@
+<h1 md-dialog-title>Are your sure you want to delete link?  </h1>
+  <div md-dialog-content class="md-dialog-container">
+    {{delLink.title}}-{{delLink.Url}}
+  </div>
+  <md-dialog-actions class="md-dialog-footer" align="end">
+    <button type="button" color="warn" md-raised-button md-dialog-close="Cancel" (click)="Cancel()">Cancel</button>
+    <!-- Can optionally provide a result for the closing dialog. -->
+    <button type="button" color="primary" md-raised-button md-dialog-close="Delete" (click)="Delete()">Delete</button>
+  </md-dialog-actions>
