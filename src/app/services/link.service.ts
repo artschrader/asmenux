@@ -10,6 +10,8 @@ export class LinkService implements OnInit {
   private linkUrl: string;
   private nextId: number;
   private link: Link;
+  private headers = new Headers({'Content-Type': 'application/json'});
+
 
   constructor(private http: Http, private settingsService: SettingsService) {
     this.linkUrl = this.settingsService.LinkUrl;
@@ -36,6 +38,14 @@ export class LinkService implements OnInit {
     this.http
     .post(this.linkUrl, this.link)
     .subscribe();
+  }
+
+  updateLink(link: Link) {
+    return this.http
+    .put((this.linkUrl + link.id), JSON.stringify(link))
+    .toPromise()
+    .then(() => link)
+    .catch(this.handleError);
   }
 
   getNextLinkId(): Promise<number> {
