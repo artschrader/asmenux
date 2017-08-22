@@ -5,6 +5,9 @@ import { DelLinkComponent } from '../dialogs/del-link/del-link.component';
 import { EditLinkComponent } from '../dialogs/edit-link/edit-link.component';
 import { BlockService } from '../services/block.service';
 import { MdDialog } from '@angular/material';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-link',

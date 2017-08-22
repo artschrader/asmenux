@@ -3,7 +3,7 @@
   <div md-dialog-content class="md-dialog-container">
     <div class="frm-ctrl">
       <md-input-container>
-        <input mdInput placeholder="Title" [formControl]="editLink.title" id="Title">
+        <input mdInput placeholder="title" formControlName="title" id="title">
       </md-input-container>
       <!--             <div *ngIf="formErrors.Title" class="text-danger">
                 {{ formErrors.Title }}
@@ -16,15 +16,12 @@
     </div>
     <div class="frm-ctrl">
       <md-input-container>
-        <input mdInput placeholder="Url" [formControl]="editLink.Url" id="Url">
+        <input mdInput placeholder="url" formControlName="url" id="url">
       </md-input-container>
       <!--             <div *ngIf="formErrors.Url" class="text-danger">
                 {{ formErrors.Url }}
             </div>
  -->
-    </div>
-    <div>
-      BlockId={{blockId}}
     </div>
   </div>
   <!-- md-dialog-content -->

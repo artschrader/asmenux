@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { Link } from '../../models/link';
 import { ReactiveFormsModule, FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LinkService } from '../../services/link.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-edit-link',
@@ -17,11 +18,11 @@ export class EditLinkComponent implements OnInit {
   public blockId: number;
 
   constructor(private fb: FormBuilder, public dialogRef: MdDialogRef<EditLinkComponent>, private linkService: LinkService) {
-    this.createForm();
   }
 
   ngOnInit() {
-
+    this.createForm();
+    this.patchData();
   }
 
   createForm() {
@@ -31,10 +32,16 @@ export class EditLinkComponent implements OnInit {
     }
     );
   }
+  patchData() {
+    this.linkFrm.patchValue({
+      title: this.editLink.title,
+      url: this.editLink.Url
+    });
+  }
 
-  onSubmit(linkFrm) {
-    this.editLink.title = linkFrm.title;
-    this.editLink.Url = linkFrm.url;
+  onSubmit() {
+    this.editLink.title = this.linkFrm.value.title;
+    this.editLink.Url = this.linkFrm.value.url;
     this.linkService.updateLink(this.editLink);
     this.dialogRef.close();
   }

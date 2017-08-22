@@ -42,7 +42,7 @@ export class LinkService implements OnInit {
 
   updateLink(link: Link) {
     return this.http
-    .put((this.linkUrl + link.id), JSON.stringify(link))
+    .put((this.linkUrl + '/' + link.id), link)
     .toPromise()
     .then(() => link)
     .catch(this.handleError);
