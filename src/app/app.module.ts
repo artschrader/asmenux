@@ -53,6 +53,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { AddLinkComponent } from './dialogs/add-link/add-link.component';
 import { DelLinkComponent } from './dialogs/del-link/del-link.component';
 import { EditLinkComponent } from './dialogs/edit-link/edit-link.component';
+import { AddBlockComponent } from './dialogs/add-block/add-block.component';
+import { SharedService } from './services/shared.service';
 
 @NgModule({
   exports: [
@@ -102,7 +104,8 @@ export class AngularMaterialModule {}
     LinkComponent,
     AddLinkComponent,
     DelLinkComponent,
-    EditLinkComponent
+    EditLinkComponent,
+    AddBlockComponent
   ],
   imports: [
     BrowserModule,
@@ -115,8 +118,8 @@ export class AngularMaterialModule {}
     ReactiveFormsModule,
     FlexLayoutModule
   ],
-  entryComponents: [AddLinkComponent, DelLinkComponent, EditLinkComponent],
-  providers: [SettingsService, BlockService, LinkService],
+  entryComponents: [AddLinkComponent, DelLinkComponent, EditLinkComponent,AddBlockComponent],
+  providers: [SettingsService, BlockService, LinkService, SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,6 @@
+.md-dialog-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}

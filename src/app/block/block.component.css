@@ -1,10 +1,25 @@
-/* 
+ 
 .block {
-    max-width:138px;
+    max-width:240px;
     padding-bottom:75px;
     flex-wrap:wrap;
     background-color: lightcyan;
+    margin:10px;
 }
+
 .plusButton {
-    margin-top: 10px;
-} */
+    position: absolute;
+    right:0;
+    margin-right: 10px;
+} 
+.cardHeader {
+    margin-bottom:10px;
+    margin-top:-10px;
+}
+.blockContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}

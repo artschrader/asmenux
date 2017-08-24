@@ -1,3 +1,6 @@
-.md-dialog-footer button {
-    margin: 10px;
+.md-dialog-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
 }

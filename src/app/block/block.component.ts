@@ -4,6 +4,8 @@ import { BlockService } from '../services/block.service';
 import { MdDialog } from '@angular/material';
 import { AddLinkComponent } from '../dialogs/add-link/add-link.component';
 import { Link } from '../models/link';
+import { MdGridList } from '@angular/material';
+import { SharedService } from '../services/shared.service';
 
 
 @Component({
@@ -19,7 +21,9 @@ export class BlockComponent implements OnInit {
   Url: string;
 
 
-  constructor(private blockService: BlockService, public dialog: MdDialog) { }
+  constructor(private blockService: BlockService, public dialog: MdDialog, private sharedService: SharedService) { 
+    this.sharedService.blockRenderFn = this.getBlocks;
+  }
 
   ngOnInit(): void {
     this.getBlocks();
@@ -34,5 +38,8 @@ export class BlockComponent implements OnInit {
     const dialogRef = this.dialog.open(AddLinkComponent);
     dialogRef.componentInstance.blockId = id;
     dialogRef.afterClosed().subscribe(() => { this.getBlocks(); });
+  }
+  deleteBlock(id: number){
+
   }
 }

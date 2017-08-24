@@ -1,42 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ApplicationRef } from '@angular/core';
 import { SettingsService } from '../services/settings.service';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {
-  MdAutocompleteModule,
-  MdButtonModule,
-  MdButtonToggleModule,
-  MdCardModule,
-  MdCheckboxModule,
-  MdChipsModule,
-  MdCoreModule,
-  MdDatepickerModule,
-  MdDialogModule,
-  MdExpansionModule,
-  MdGridListModule,
-  MdIconModule,
-  MdInputModule,
-  MdListModule,
-  MdMenuModule,
-  MdNativeDateModule,
-  MdPaginatorModule,
-  MdProgressBarModule,
-  MdProgressSpinnerModule,
-  MdRadioModule,
-  MdRippleModule,
-  MdSelectModule,
-  MdSidenavModule,
-  MdSliderModule,
-  MdSlideToggleModule,
-  MdSnackBarModule,
-  MdSortModule,
-  MdTableModule,
-  MdTabsModule,
-  MdToolbarModule,
-  MdTooltipModule,
-} from '@angular/material';
 import {HttpModule} from '@angular/http';
-import {CdkTableModule} from '@angular/cdk';
+import { MdDialog } from '@angular/material';
+import { AddBlockComponent } from '../dialogs/add-block/add-block.component';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-menu',
@@ -46,10 +13,13 @@ import {CdkTableModule} from '@angular/cdk';
 export class MenuComponent implements OnInit {
 
   pages = [];
-  constructor(private settingsService: SettingsService) {
+  constructor(private settingsService: SettingsService, public dialog: MdDialog, private applicationRef: ApplicationRef, private sharedService: SharedService) {
   }
   ngOnInit() {
     this.pages = this.settingsService.Pages;
   }
-
+  NewDialog(){
+    const dialogRef = this.dialog.open(AddBlockComponent);
+    dialogRef.afterClosed().subscribe(() => { this.sharedService.blockRenderFn(); });
+  }
 }

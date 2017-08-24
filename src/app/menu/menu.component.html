@@ -1,10 +1,13 @@
-  <div class="header">
-  <button md-icon-button [mdMenuTriggerFor]="appMenu">
-  <md-icon>more_vert</md-icon>
-  </button>
+<md-toolbar class="header" >
+  <div>
+    <button md-icon-button [mdMenuTriggerFor]="appMenu">
+    <md-icon>more_vert</md-icon>
+    </button>
     <md-menu #appMenu="mdMenu">
-      <div  *ngFor="let p of pages">
+      <div *ngFor="let p of pages">
         <button md-menu-item routerLink="{{p}}">{{p}}</button>
       </div>
-      </md-menu>
+    </md-menu>
+    <button class="addButton" md-mini-fab color="none" (click)="NewDialog()"><i class="material-icons">add</i></button>
   </div>
+</md-toolbar>

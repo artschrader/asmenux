@@ -1,0 +1,16 @@
+<form novalidate (ngSubmit)="onSubmit(blockFrm)" [formGroup]="blockFrm">
+    <h1 md-dialog-title>Create New Block</h1>
+    <div md-dialog-content class="md-dialog-container">
+      <div class="frm-ctrl">
+        <md-input-container>
+          <input mdInput placeholder="Title" [formControl]="title" id="Title">
+        </md-input-container>
+      </div>
+    </div>
+    <!-- md-dialog-content -->
+    <md-dialog-actions class="md-dialog-footer" align="end">
+      <button type="button" color="warn" md-raised-button md-dialog-close="Cancel">Cancel</button>
+      <!-- Can optionally provide a result for the closing dialog. -->
+      <button type="submit" color="primary" md-raised-button>Save</button>
+    </md-dialog-actions>
+  </form>
