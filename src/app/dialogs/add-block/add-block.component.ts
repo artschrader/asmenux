@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
-import { MdDialogRef } from "@angular/material";
-import { BlockService } from "../../services/block.service";
-import { Block } from "../../models/block";
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { MdDialogRef } from '@angular/material';
+import { BlockService } from '../../services/block.service';
+import { Block } from '../../models/block';
 
 @Component({
   selector: 'app-add-block',
@@ -17,7 +17,7 @@ export class AddBlockComponent implements OnInit {
   constructor(private fb: FormBuilder, public dialogRef: MdDialogRef<AddBlockComponent>, private blockService: BlockService) { }
 
   ngOnInit() {
-    this.createForm(); 
+    this.createForm();
   }
 
   createForm() {

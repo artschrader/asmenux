@@ -54,7 +54,7 @@ import { AddLinkComponent } from './dialogs/add-link/add-link.component';
 import { DelLinkComponent } from './dialogs/del-link/del-link.component';
 import { EditLinkComponent } from './dialogs/edit-link/edit-link.component';
 import { AddBlockComponent } from './dialogs/add-block/add-block.component';
-import { SharedService } from './services/shared.service';
+import { BlockStoreService } from './services/block-store.service';
 
 @NgModule({
   exports: [
@@ -119,7 +119,7 @@ export class AngularMaterialModule {}
     FlexLayoutModule
   ],
   entryComponents: [AddLinkComponent, DelLinkComponent, EditLinkComponent,AddBlockComponent],
-  providers: [SettingsService, BlockService, LinkService, SharedService],
+  providers: [SettingsService, BlockService, BlockStoreService, LinkService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

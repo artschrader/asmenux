@@ -5,7 +5,7 @@ import { MdDialog } from '@angular/material';
 import { AddLinkComponent } from '../dialogs/add-link/add-link.component';
 import { Link } from '../models/link';
 import { MdGridList } from '@angular/material';
-import { SharedService } from '../services/shared.service';
+import { BlockStoreService } from "../services/block-store.service";
 
 
 @Component({
@@ -21,15 +21,16 @@ export class BlockComponent implements OnInit {
   Url: string;
 
 
-  constructor(private blockService: BlockService, public dialog: MdDialog, private sharedService: SharedService) { 
-    this.sharedService.blockRenderFn = this.getBlocks;
+  constructor(private blockStoreService: BlockStoreService, public dialog: MdDialog) { 
+  
   }
 
   ngOnInit(): void {
     this.getBlocks();
   }
   getBlocks() {
-   this.blockService.getBlocks().then(blocks => { this.blocks = blocks; });
+   this.blockStoreService.getBlocks()
+                          .subscribe(blocks => { this.blocks = blocks; });
   }
   OnClick(event) {
     console.log(event);
